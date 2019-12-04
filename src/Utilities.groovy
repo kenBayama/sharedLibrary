@@ -24,7 +24,6 @@ class Utilities implements Serializable {
     //def archiving = steps.archiveArtifacts artifacts: 'target/pack/**'
 
     def deploy(workspace, service, catchup_start_date, catchup_end_date, DeployOn, platform) {
-
         try {
             steps.sh "ssh -t -T devops@localhost 'cd ${workspace}/ansible && /var/lib/jenkins/env/bin/ansible-playbook deploy.yml --tags all -e \"service=${service}\" -e \"catchup_start_date=${catchup_start_date}\" -e \"catchup_end_date=${catchup_end_date}\" -e \"platforms_env=${DeployOn}\" -i platforms/${platform}/inventory.ini'"
         }
