@@ -9,7 +9,11 @@ class Utilities implements Serializable {
 
 
     def checkOutFrom(sourceBranch, credential, url) {
-        steps.git branch: "${sourceBranch}", credentialsId: "${credential}", url: "${url}"
+        steps.echo " credentials in ${credential}"
+        steps.echo " sourceBranch in ${sourceBranch}"
+        steps.echo " url in ${url}"
+
+        steps.git branch: "${sourceBranch}", credentialsId: "${credential}", url: "https://bitbucket.org/louisvuitton_team/${url}"
     }
 
     def compileService() {
