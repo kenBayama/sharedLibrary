@@ -21,7 +21,7 @@ class Utilities implements Serializable {
         }
     }
 
-    //def archiving = steps.archiveArtifacts artifacts: 'target/pack/**'
+    def archiving = steps.archiveArtifacts artifacts: 'target/pack/**'
 
     def deploy(workspace, service, catchup_start_date, catchup_end_date, DeployOn, platform) {
         try {
